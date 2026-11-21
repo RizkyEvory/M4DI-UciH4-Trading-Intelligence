@@ -178,13 +178,13 @@ PROJECT APLIKASI/
 │       └── institutional_confluence.py # Multi-factor institutional setup (EMA + RSI + RVOL)
 ├── watchlist/
 │   ├── __init__.py
-│   └── watchlist_manager.py         # Multi-watchlist lifecycle, symbol notes, and price alert rules (Phase 6)
+│   └── watchlist_manager.py         # Multi-watchlist lifecycle, symbol notes, and price alert rules
 ├── notifications/
 │   ├── __init__.py
-│   └── telegram_notifier.py         # Optional Telegram alert dispatcher for signals, news, risk (Phase 6)
+│   └── telegram_notifier.py         # Optional Telegram alert dispatcher for signals, news, risk
 ├── diagnostics/
 │   ├── __init__.py
-│   └── system_diagnostics.py        # End-to-end automated health & integrity auditing suite (Phase 6)
+│   └── system_diagnostics.py        # End-to-end automated health & integrity auditing suite
 ├── security/
 │   ├── __init__.py
 │   └── encryption.py                # Local secret encryption & key masking helpers
@@ -192,7 +192,7 @@ PROJECT APLIKASI/
 │   ├── __init__.py
 │   ├── formatters.py                # Datetime & numerical formatters
 │   ├── helpers.py                   # Window centering & GUI utility helpers
-│   └── exporter.py                  # Universal CSV & JSON dataset exporter (Phase 6)
+│   └── exporter.py                  # Universal CSV & JSON dataset exporter
 ├── docs/
 │   ├── INSTALLATION.md              # Installation manual across platforms
 │   ├── CONFIGURATION.md             # Parameter customization & theme manual
@@ -204,7 +204,7 @@ PROJECT APLIKASI/
 │   ├── components/
 │   │   ├── __init__.py
 │   │   ├── cards.py                 # CardFrame & StatCard telemetry widgets
-│   │   ├── header.py                # Real-time clock, status pills & Phase 6 telemetry
+│   │   ├── header.py                # Real-time clock, status pills & system telemetry
 │   │   ├── sidebar.py               # 10 Navigation buttons with active indicators
 │   │   ├── tables.py                # Sortable Treeview with alternating dark rows
 │   │   └── candlestick_chart.py     # Pure Tkinter Canvas high-performance interactive chart
@@ -212,21 +212,21 @@ PROJECT APLIKASI/
 │   │   ├── __init__.py
 │   │   ├── api_key_dialog.py        # Add / Edit API key modal with priority & secret toggle
 │   │   ├── confirm_dialog.py        # Confirmation modal
-│   │   └── watchlist_dialog.py      # Multi-watchlist and symbol alert manager modal (Phase 6)
+│   │   └── watchlist_dialog.py      # Multi-watchlist and symbol alert manager modal
 │   └── views/
 │       ├── __init__.py
-│       ├── dashboard_view.py        # Executive Command Dashboard with live subsystem telemetry (Phase 6)
-│       ├── api_management_view.py   # Multi-key manager, testing, and failover logs (Phase 6)
-│       ├── market_scanner_view.py   # Quantitative Market Scanner with filters & export (Phase 6)
+│       ├── dashboard_view.py        # Executive Command Dashboard with live subsystem telemetry
+│       ├── api_management_view.py   # Multi-key manager, testing, and failover logs
+│       ├── market_scanner_view.py   # Quantitative Market Scanner with filters & export
 │       ├── charts_view.py           # Interactive Multi-Timeframe Charting Workspace
 │       ├── news_view.py             # News Intelligence & Sentiment Analysis Hub with export
 │       ├── signals_view.py          # Institutional Trading Signal Engine & Alerts Center with export
 │       ├── portfolio_view.py        # Live Portfolio Manager & Paper Trading Desk with export
 │       ├── backtesting_view.py      # Backtest Workspace with Equity & Drawdown Curves and export
-│       ├── settings_view.py         # Application settings, themes, risk guardrails, Telegram (Phase 6)
+│       ├── settings_view.py         # Application settings, themes, risk guardrails, Telegram
 │       └── logs_view.py             # Filterable & searchable audit log viewer
-├── build_windows.py                 # Automated Windows PyInstaller packager (Phase 6)
-├── m4di_ucih4.spec                  # Standalone Windows packaging specification (Phase 6)
+├── build_windows.py                 # Automated Windows PyInstaller packager
+├── m4di_ucih4.spec                  # Standalone Windows packaging specification
 └── tests/
     ├── __init__.py
     ├── test_database.py             # Database schema & parameterized query tests
@@ -254,11 +254,11 @@ PROJECT APLIKASI/
     ├── test_portfolio_manager.py    # Position lifecycle, trade ledger & P/L calculation tests
     ├── test_paper_trading.py        # Paper orders, fee/slippage & automated SL/TP trigger tests
     ├── test_backtest_engine.py      # Metrics math, 5 strategies & anti-data-leakage tests
-    ├── test_watchlist_manager.py    # Watchlist lifecycle, notes & price alert triggers tests (Phase 6)
-    ├── test_telegram_notifier.py    # Telegram optional alerts & payload tests (Phase 6)
-    ├── test_exporter.py             # CSV & JSON exporter pipeline tests (Phase 6)
-    ├── test_diagnostics.py          # Automated system health & integrity check tests (Phase 6)
-    └── test_advanced_api.py         # Request logging & failover history tests (Phase 6)
+    ├── test_watchlist_manager.py    # Watchlist lifecycle, notes & price alert triggers tests
+    ├── test_telegram_notifier.py    # Telegram optional alerts & payload tests
+    ├── test_exporter.py             # CSV & JSON exporter pipeline tests
+    ├── test_diagnostics.py          # Automated system health & integrity check tests
+    └── test_advanced_api.py         # Request logging & failover history tests
 ```
 
 ---
@@ -316,7 +316,7 @@ PROJECT APLIKASI/
 
 ---
 
-## 📱 Telegram Alerts & Multi-Watchlist Architecture (Phase 6)
+## 📱 Telegram Alerts & Multi-Watchlist Architecture
 
 1. **Optional Telegram Notifications**:
    - Easily set up via `@BotFather` and configured in the **Settings** view.
@@ -349,6 +349,110 @@ One-click automated system audit checks:
 - **Host Runtime**: Monitors active thread count, process ID, OS platform, and Python runtime version.
 - **Background Tasks**: Verifies worker thread pool health and pending execution queues.
 - **Error Audit**: Summarizes recent application error and warning frequencies.
+
+---
+
+## 🔑 Panduan Lengkap Cara Membuat & Konfigurasi API Key (API Setup Guide)
+
+Aplikasi **M4DI~UciH4 Trading Intelligence System** menggunakan API resmi dari penyedia data finansial institusional untuk menyajikan kuotasi real-time, grafik candlestick interaktif, scanner kuantitatif, dan berita makro ekonomi. 
+
+Seluruh API key yang Anda masukkan disimpan secara aman di database lokal terenkripsi (**AES-256 / PBKDF2**) dan tidak pernah di-hardcode atau dikirimkan ke pihak luar.
+
+Berikut adalah panduan langkah-demi-langkah untuk mendapatkan API Key secara **GRATIS** dari masing-masing penyedia:
+
+---
+
+### 1. Finnhub Stock & Forex API (Kuotasi Real-Time & Berita Emiten)
+* **Kegunaan Utama**: Real-time market quotes (Saham & Forex), profil emiten, berita pasar institusional, dan riwayat candlestick.
+* **Langkah Mendapatkan API Key Gratis**:
+  1. Buka browser dan kunjungi: [https://finnhub.io](https://finnhub.io)
+  2. Klik tombol hijau **Get free API key** di pojok kanan atas.
+  3. Daftarkan akun baru dengan Email Anda, atau login cepat menggunakan akun Google / GitHub.
+  4. Setelah masuk ke Dashboard Finnhub, temukan bagian **API Key / API Token** (string acak, contoh: `c1234567890abcdef...`).
+  5. Salin (**Copy**) API key tersebut.
+* **Cara Memasukkan ke Aplikasi**:
+  1. Buka aplikasi **M4DI~UciH4**, di sidebar kiri klik menu **API Management**.
+  2. Klik tombol **➕ Add Key**.
+  3. Pada jendela yang muncul:
+     - **Provider**: Pilih `Finnhub`
+     - **Key Name**: Beri nama label (contoh: `Finnhub Primary`)
+     - **API Key**: Tempelkan (**Paste**) API key yang disalin tadi
+     - **Priority**: Masukkan angka prioritas (default: `1`)
+  4. Klik **Save Key**.
+  5. Klik tombol **🧪 Test Key** pada tabel untuk memastikan koneksi berhasil (**Active / Valid**).
+* **Kuota Gratis**: 60 requests / menit.
+
+---
+
+### 2. Twelve Data Financial API (Gold/XAUUSD, Forex, Indeks & Crypto)
+* **Kegunaan Utama**: Data time series multi-aset, komoditas Emas (`XAU/USD`), Indeks Global (`US30`, `SPX`, `QQQ`), pasangan mata uang Forex, dan Kripto.
+* **Langkah Mendapatkan API Key Gratis**:
+  1. Kunjungi situs resmi Twelve Data: [https://twelvedata.com](https://twelvedata.com)
+  2. Klik tombol **Register** atau **Get Started for Free**.
+  3. Isi formulir pendaftaran (Nama, Email, Password) atau login menggunakan akun Google.
+  4. Buka email Anda dan lakukan konfirmasi verifikasi jika diminta.
+  5. Masuk ke Dashboard Twelve Data, lalu navigasikan ke menu **API Keys**.
+  6. Salin (**Copy**) API key Anda.
+* **Cara Memasukkan ke Aplikasi**:
+  1. Di aplikasi **M4DI~UciH4**, buka menu **API Management**.
+  2. Klik tombol **➕ Add Key**.
+  3. Pada form:
+     - **Provider**: Pilih `Twelve Data`
+     - **Key Name**: Beri nama (contoh: `TwelveData Main`)
+     - **API Key**: Tempelkan API key Twelve Data Anda
+     - **Priority**: `1`
+  4. Klik **Save Key**, lalu klik **🧪 Test Key** untuk verifikasi konektivitas.
+* **Kuota Gratis**: 8 requests / menit, 800 requests / hari.
+
+---
+
+### 3. NewsAPI.org Macro Intelligence (Berita Pasar Global & Makro Ekonomi)
+* **Kegunaan Utama**: Agregasi berita global makro, pengumuman suku bunga bank sentral (The Fed, ECB, BOJ), rilis data inflasi (CPI/PPI), dan analisis sentimen pasar untuk News Intelligence Engine.
+* **Langkah Mendapatkan API Key Gratis**:
+  1. Kunjungi: [https://newsapi.org](https://newsapi.org)
+  2. Klik tombol **Get API Key** di menu navigasi.
+  3. Lengkapi formulir pendaftaran (Nama, Email, Password), pilih jenis penggunaan individu/pengembangan.
+  4. Setelah submit, API key Anda akan langsung muncul di halaman (string alfanumerik 32 karakter).
+  5. Salin (**Copy**) API key tersebut.
+* **Cara Memasukkan ke Aplikasi**:
+  1. Di aplikasi **M4DI~UciH4**, buka menu **API Management**.
+  2. Klik tombol **➕ Add Key**.
+  3. Pada form:
+     - **Provider**: Pilih `NewsAPI.org`
+     - **Key Name**: Beri nama (contoh: `NewsAPI Developer`)
+     - **API Key**: Tempelkan kunci NewsAPI Anda
+  4. Klik **Save Key** dan uji dengan klik **🧪 Test Key**.
+* **Kuota Gratis**: 100 requests / hari.
+
+---
+
+### 4. Fitur Cerdas: Multi-Key Rotation & Failover Otomatis
+Jika Anda memiliki beberapa akun gratis Finnhub atau Twelve Data:
+* Aplikasi mendukung **unlimited keys** per provider.
+* Anda dapat memilih strategi rotasi di tab **API Management**:
+  * **Priority-Based**: Selalu menggunakan key dengan nomor prioritas tertinggi.
+  * **Round-Robin**: Menggilir panggilan request secara seimbang di seluruh key aktif.
+  * **Least-Used**: Otomatis memilih key yang pemakaian kuotanya paling sedikit.
+  * **Failover**: Otomatis berpindah ke key cadangan jika key utama terkena limit (HTTP 429) dengan periode *cooldown* cerdas.
+
+---
+
+### 5. Notifikasi Telegram Bot (Opsional)
+Aplikasi dapat mengirimkan notifikasi sinyal trading instan (*Strong Buy / Sell*), *high-impact news*, dan *risk alerts* langsung ke ponsel Telegram Anda.
+
+* **Cara Membuat Bot Telegram**:
+  1. Buka aplikasi Telegram di HP/Komputer Anda.
+  2. Cari user resmi `@BotFather` (bertanda centang biru).
+  3. Kirim pesan `/newbot` dan ikuti petunjuk nama bot Anda.
+  4. BotFather akan memberikan **HTTP API Bot Token** (contoh: `123456789:ABCdefGhIJKlmNoPQRstuVWXyz...`). Salin token ini.
+  5. Untuk mengetahui ID chat Anda, cari user `@userinfobot` di Telegram, lalu klik **Start**. Bot tersebut akan menampilkan angka **Id** Anda (contoh: `987654321`). Salin ID tersebut.
+* **Cara Memasukkan ke Aplikasi**:
+  1. Buka menu **Settings** di aplikasi **M4DI~UciH4**.
+  2. Scroll ke bagian **Telegram Notifications Settings**.
+  3. Centang opsi **Enable Telegram Notification Transmissions**.
+  4. Masukkan **Telegram Bot Token** dan **Telegram Chat ID**.
+  5. Klik tombol **📡 Send Test Telegram Ping** untuk memastikan notifikasi masuk ke HP Anda.
+  6. Klik **Save All Settings**.
 
 ---
 
